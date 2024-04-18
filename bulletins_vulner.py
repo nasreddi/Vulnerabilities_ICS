@@ -5,6 +5,8 @@ from unidecode import unidecode
 import smtplib
 from email.mime.text import MIMEText
 import re
+import os
+from dotenv import load_dotenv
 
 
 def extract_bulletins(url):
@@ -60,11 +62,12 @@ def send_email(receiver_email, latest_vulnerability):
     """
     Send email notification for the latest vulnerability.
     """
-    sender_email = 'nasreddinechemlal@gmail.com'
+    load_dotenv()
+    sender_email = os.getenv("username_gmail")
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587
     smtp_username = sender_email
-    smtp_password = 'vvpx eyam rlef ghpq'
+    smtp_password = os.getenv("password_gmail")
 
     message_text = f"""Une vulnérabilité a été détectée:
     Title: {latest_vulnerability['title']}
@@ -101,8 +104,9 @@ def main():
         print("Exported")
 
         # Send email notification for the latest vulnerability
+        load_dotenv()
         latest_vulnerability = filtered_bulletins_list[0]
-        send_email('nasreddinechemlal@gmail.com', latest_vulnerability)
+        send_email(os.getenv("receiver_email"), latest_vulnerability)
         print("Sent")
 
 
