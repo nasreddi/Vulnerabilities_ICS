@@ -1,4 +1,4 @@
-﻿# Vulnerabilities_ICS
+# Vulnerabilities_ICS
 
 The "Vulnerability Bulletin Scraper" project is a Python script designed to extract security bulletins from a specified URL.
 It utilizes web scraping techniques to gather information about security vulnerabilities, including their titles,
@@ -8,4 +8,4 @@ vulnerabilities matching certain criteria. This tool is useful for monitoring se
 
 informed about potential risks.
 
-https://we.tl/t-zOHFiHWlSL
+
